@@ -1,3 +1,5 @@
+import {useState, useEffect} from "react"
+
 import {
   Route,
   Routes,
@@ -40,9 +42,49 @@ import Wallet from "./pages/Wallet";
 function App() {
   const navigate = useNavigate();
 
+  const [address, setAddress] =
+    useState(null);
+  console.log("address:", address);
+
+  useEffect(() => {
+    if (!address) {
+      const previousAddress =
+        window.localStorage.getItem(
+          "nftx-address"
+        );
+
+      if (previousAddress) {
+        setAddress(previousAddress);
+      }
+    }
+  }, [address]);
+
+
+
   return (
     <>
-      <Connect />
+      <Connect 
+      
+        address={address}
+        
+        onConnect={(address) => {
+          setAddress(address);
+
+          window.localStorage.setItem(
+            "nftx-address",
+            address
+          );
+        }}
+
+        onDisconnect={() => {
+          setAddress(null);
+
+          window.localStorage.removeItem(
+            "nftx-address"
+          );
+        }}
+
+      />
       <Page>
         <Menu
           left="0"
