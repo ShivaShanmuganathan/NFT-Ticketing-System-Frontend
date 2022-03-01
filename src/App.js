@@ -46,9 +46,17 @@ function App() {
   const [address, setAddress] =
     useState(null);
   const [connectedContract, setConnectedContract] = useState(null);
+  const [isOwner, setIsOwner] = useState(false);
   
   console.log("address:", address);
   console.log("connectedContract:", connectedContract);
+  console.log("isOwner:", isOwner);
+
+
+  useEffect(() => {
+    checkIsContractOwner();
+  }, [address, connectedContract]);
+
 
   useEffect(() => {
     if (!address) {
@@ -62,6 +70,10 @@ function App() {
       }
     }
   }, [address]);
+
+  useEffect(() => {
+    getConnectedContract();
+  }, []);
 
   const getConnectedContract =
     async () => {
@@ -86,9 +98,24 @@ function App() {
 
     };
 
-  useEffect(() => {
-    getConnectedContract();
-  }, []);
+  
+
+  const checkIsContractOwner =
+    async () => {
+      
+      if (!address || !connectedContract) return;
+
+      const ownerAddress = await connectedContract.owner();
+
+      if (address.toLowerCase() === ownerAddress.toLowerCase()) {
+        setIsOwner(true);
+      }
+      else {
+        setIsOwner(false);
+      }
+
+    };
+
   
 
 
@@ -183,6 +210,7 @@ function App() {
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem
+                  isDisabled={!isOwner}
                   onClick={() =>
                     navigate(
                       "/check-in"
@@ -204,6 +232,7 @@ function App() {
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem
+                  isDisabled={!isOwner}
                   onClick={() =>
                     navigate("/admin")
                   }
