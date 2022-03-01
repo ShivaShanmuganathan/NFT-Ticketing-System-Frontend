@@ -277,7 +277,9 @@ function App() {
 
             <Route
               path="/check-in"
-              element={<CheckIn />}
+              element={<CheckIn 
+              connectedContract={connectedContract}
+              />}
             />
 
             <Route
