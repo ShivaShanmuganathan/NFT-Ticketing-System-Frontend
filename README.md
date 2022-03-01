@@ -1,39 +1,37 @@
-# NFTix Demo UI
+# 🎟️ NFTx Ticketing System Frontend 🎟️
 
-This repository contains the UI used for my Egghead course on building a NFT ticketing system 🥚 🤓
+This repository contains the Frontend for the 🎟️ NFT Ticketing System 🎟️
 
-If you're watching the videos, use the `main` branch to follow along. To see the final results, checkout the `final` branch.
 
 ## Get started
 
 1. Clone the repo to you local system
 
-```bash
-git clone git@github.com:ryancharris/nftix-demo-ui.git
+```shell
+git clone https://github.com/ShivaShanmuganathan/NFT-Ticketing-System-Frontend.git
 ```
 
 2. Open the directory
 
-```bash
-cd nftix-demo-ui
+```shell
+cd NFT-Ticketing-System-Frontend
 ```
 
 3. Install the required node modules
 
-```bash
+```shell
 yarn install
 ```
 
-4. Set the value of `REACT_APP_CONTRACT_ID`
+4. Set the value of `REACT_APP_CONTRACT_ID` in `.env.development.local`
 
-```env
-# .env.development.local
+```shell
 
 REACT_APP_CONTRACT_ID=0x1234567890
 ```
 
 5. Start the development server
 
-```bash
+```shell
 yarn start
 ```
