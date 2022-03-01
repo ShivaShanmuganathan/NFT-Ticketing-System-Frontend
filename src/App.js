@@ -280,7 +280,10 @@ function App() {
 
             <Route
               path="/admin"
-              element={<Admin />}
+              element={<Admin 
+              isOwner={isOwner}
+              connectedContract={connectedContract}
+              />}
             />
 
             <Route
