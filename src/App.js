@@ -270,7 +270,9 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Buy />}
+              element={<Buy 
+                connectedContract={connectedContract}
+              />}
             />
 
             <Route
