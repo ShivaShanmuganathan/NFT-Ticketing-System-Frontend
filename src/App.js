@@ -89,7 +89,7 @@ function App() {
 
       const connectedContract =
         new ethers.Contract(
-          process.env.REACT_APP_CONTRACT_ID,
+          "0xa55Df6C0F21671f93D72526a2B49d858Ef2e6c39",
           NFTx.abi,
           signer
         );
