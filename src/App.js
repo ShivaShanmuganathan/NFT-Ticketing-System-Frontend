@@ -5,8 +5,9 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-
+import { ethers } from "ethers";
 import logo from "./images/devdao.svg";
+import NFTx from "./contracts/NFTx.json";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
@@ -44,7 +45,10 @@ function App() {
 
   const [address, setAddress] =
     useState(null);
+  const [connectedContract, setConnectedContract] = useState(null);
+  
   console.log("address:", address);
+  console.log("connectedContract:", connectedContract);
 
   useEffect(() => {
     if (!address) {
@@ -58,6 +62,34 @@ function App() {
       }
     }
   }, [address]);
+
+  const getConnectedContract =
+    async () => {
+      const { ethereum } = window;
+      if (!ethereum) return;
+
+      const provider =
+        new ethers.providers.Web3Provider(
+          ethereum
+        );
+      
+      const signer = provider.getSigner();
+
+      const connectedContract =
+        new ethers.Contract(
+          process.env.REACT_APP_CONTRACT_ID,
+          NFTx.abi,
+          signer
+        );
+
+      setConnectedContract(connectedContract);
+
+    };
+
+  useEffect(() => {
+    getConnectedContract();
+  }, []);
+  
 
 
 
