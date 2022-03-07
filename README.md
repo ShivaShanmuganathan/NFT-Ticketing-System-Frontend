@@ -1,6 +1,6 @@
 # 🎟️ NFTx Ticketing System Frontend 🎟️
 
-View Live Project At 🎟️ [NFT Ticketing System Frontend](!https://nft-ticketing-system.netlify.app/) 🎟️
+View Live Project At 🎟️ [NFT Ticketing System Frontend](https://nft-ticketing-system.netlify.app/) 🎟️
 
 
 ## Get started
