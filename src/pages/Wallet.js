@@ -18,7 +18,7 @@ function Wallet({ address }) {
     loadingTicket,
     setLoadingTicket,
   ] = useState(false);
-  const [ticket, setTicket] =
+  const [nftTicket, setNftTicket] =
     useState(null);
 
   const createTicketDisplay = () => {
@@ -60,19 +60,21 @@ function Wallet({ address }) {
 
   useEffect(() => {
     if (!address) return;
+    
     axios
       .get(
         `https://rinkeby-api.opensea.io/api/v1/assets?owner=${address}&asset_contract_address=${process.env.REACT_APP_CONTRACT_ID}`
       )
       .then((res) => {
         setLoadingTicket(true);
-        console.log(res);
+        
         if (
           res.status === 200 &&
           res?.data?.assets &&
           res?.data?.assets.length
         ) {
-          setTicket(res.data.assets[0]);
+          setNftTicket(res.data.assets[0]);
+          
         }
         setLoadingTicket(false);
       })
@@ -101,13 +103,15 @@ function Wallet({ address }) {
         )}
         {!loadingTicket &&
           createTicketDisplay()}
-        {!loadingTicket && !ticket && (
+        
+        {!loadingTicket && !nftTicket && (
+          
           <Text
             fontSize="xl"
             mb={2}
             width="100%"
           >
-            You don't own any tickets 😢
+            
           </Text>
         )}
       </Flex>
