@@ -1,6 +1,6 @@
 # 🎟️ NFTx Ticketing System Frontend 🎟️
 
-This repository contains the Frontend for the 🎟️ NFT Ticketing System 🎟️
+View Live Project At 🎟️ [NFT Ticketing System Frontend](!https://nft-ticketing-system.netlify.app/) 🎟️
 
 
 ## Get started
