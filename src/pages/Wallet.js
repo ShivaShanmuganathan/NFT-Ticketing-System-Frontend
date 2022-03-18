@@ -27,14 +27,14 @@ function Wallet({ address }) {
       permalink:
         "https://rinkeby.rarible.com/token/0x8f510afccb7a50181dfe95b803443070ded8ba1d:1?tab=history",
       image_url:
-        "https://rarible.mypinata.cloud/ipfs/Qmd8FCbr5eiFcrSzj3PRovG61tVeus3HJzT3B46XXaJmWj",
+        "https://lh3.googleusercontent.com/jy3b2SYSfxRwoffQ6QmWvzo4NsmpzRqX5v4MD7MfYzuVLXkYRYHraHnM_sJMBu3bW1mvIBUtAhq_tTuBcjjQahHADjvF4iYC7OCj=w600",
     };
     return (
       <Link
         href={ticket.permalink}
         key={ticket.token_id}
         isExternal
-        width="100%"
+        // width="100%"
         margin="16px 8px"
       >
         <Text
@@ -47,9 +47,11 @@ function Wallet({ address }) {
         <Box
           padding="12px"
           border="1px solid black"
-          borderRadius="12px"
+          borderRadius="15px"
         >
           <Image
+            width={600}
+            height={250}
             src={ticket.image_url}
             alt={`NFTix #${ticket.token_id}`}
           />
